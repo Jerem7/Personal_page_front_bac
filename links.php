@@ -1,0 +1,9 @@
+<?php include 'includes/header.php'; ?>
+<main>
+    <h1>Links</h1>
+    <ul>
+        <li><a href="https://github.com">GitHub</a></li>
+        <li><a href="https://linkedin.com">LinkedIn</a></li>
+    </ul>
+</main>
+<?php include 'includes/footer.php'; ?>
