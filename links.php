@@ -1,4 +1,6 @@
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php';
+includeAssets();
+?>
 <main>
     <h1>Links</h1>
     <ul>

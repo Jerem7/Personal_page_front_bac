@@ -1,66 +1,155 @@
-body {
-    font-family: Arial, sans-serif;
+/* Resetowanie stylów domyślnych */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #f4f4f4;
+    box-sizing: border-box;
 }
 
-form {
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
+/* Ogólne style */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Nagłówek */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #f0a500;
+}
+
+/* Główna zawartość */
+main {
+    padding: 120px 20px 20px; /* Dostosowany padding na nagłówek */
+    flex: 1; /* Elastyczne wypełnienie przestrzeni */
     text-align: center;
 }
 
-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    width: 100%;
-    padding: 10px;
+/* Stopka */
+footer {
     background: #333;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-form button:hover {
-    background: #555;
-}
-
-.error {
-    color: red;
-    font-size: 0.9em;
-}
-footer nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
+footer nav {
     display: flex;
     justify-content: center;
+    gap: 15px;
 }
 
-footer nav ul li {
-    margin: 0 10px;
-}
-
-footer nav ul li a {
+footer nav a {
+    color: #fff;
     text-decoration: none;
-    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-footer nav ul li a:hover {
-    color: #555;
+footer nav a:hover {
+    color: #f0a500;
+}
+
+/* Projekty i galeria */
+.projects-list, .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.project, .gallery-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover, .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project img, .gallery-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.project img:hover, .gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal dla obrazów */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
+
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal .close:hover {
+    color: #f0a500;
 }

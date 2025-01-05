@@ -1,24 +1,50 @@
 <?php
+require_once 'init.php';
+// Rozpoczęcie sesji i połączenie z bazą
 session_start();
-include 'db/connection.php';
+$host = 'localhost';
+$dbname = 'portfolio';
+$username = 'root';
+$password = '';
+$conn = new mysqli($host, $username, $password, $dbname);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
-    $stmt->execute(['username' => $username, 'password' => $password]);
-    $user = $stmt->fetch();
+// Obsługa logowania
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = trim($_POST['username']);
+    $pass = md5(trim($_POST['password']));  // Haszowanie hasła przed porównaniem
 
-    if ($user) {
-        $_SESSION['user_id'] = $user['id'];
-        header('Location: dashboard.php');
-        exit;
+    // Debugowanie danych wejściowych
+    var_dump($user, $pass);
+
+    // Sprawdzenie użytkownika
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        // Porównanie hasła (md5)
+        if ($pass === $row['password']) {
+            $_SESSION['user_id'] = $row['id'];
+            header('Location: dashboard.php');
+            exit;
+        } else {
+            echo "Invalid login credentials.";
+        }
     } else {
-        $error = "Invalid username or password.";
+        echo "Invalid login credentials.";
     }
 }
+includeAssets();
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">

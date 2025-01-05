@@ -1,4 +1,8 @@
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php';
+require_once 'init.php';
+includeAssets();
+?>
+    <link rel="stylesheet" href="assets/css/styles.css">
     <main>
         <h1>Welcome to My Blog</h1>
         <article>
