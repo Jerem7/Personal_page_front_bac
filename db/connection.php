@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $dbname = 'portfolio';
-$username = 'root'; // Twój użytkownik MySQL
-$password = ''; // Hasło do MySQL
+$username = 'root';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

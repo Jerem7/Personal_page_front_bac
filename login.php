@@ -1,16 +1,5 @@
 <?php
 require_once 'init.php';
-// Rozpoczęcie sesji i połączenie z bazą
-session_start();
-$host = 'localhost';
-$dbname = 'portfolio';
-$username = 'root';
-$password = '';
-$conn = new mysqli($host, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 // Obsługa logowania
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -34,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: dashboard.php');
             exit;
         } else {
-            echo "Invalid login credentials.";
+            echo "złe dane logownia";
         }
     } else {
-        echo "Invalid login credentials.";
+        echo "złe dane logownia";
     }
 }
 includeAssets();

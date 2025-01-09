@@ -48,8 +48,11 @@ header nav a:hover {
 /* Główna zawartość */
 main {
     padding: 120px 20px 20px; /* Dostosowany padding na nagłówek */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex: 1; /* Elastyczne wypełnienie przestrzeni */
-    text-align: center;
 }
 
 /* Stopka */
@@ -82,7 +85,7 @@ footer nav a:hover {
 }
 
 /* Projekty i galeria */
-.projects-list, .gallery {
+.projects-list, .gallery, .blog-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -90,7 +93,7 @@ footer nav a:hover {
     padding: 20px 0;
 }
 
-.project, .gallery-item {
+.project, .gallery-item, .blog-item {
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
@@ -101,12 +104,12 @@ footer nav a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project:hover, .gallery-item:hover {
+.project:hover, .gallery-item:hover, .blog-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.project img, .gallery-item img {
+.project img, .gallery-item img, .blog-item img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
@@ -114,7 +117,7 @@ footer nav a:hover {
     transition: transform 0.2s ease;
 }
 
-.project img:hover, .gallery-item img:hover {
+.project img:hover, .gallery-item img:hover, .blog-item img:hover {
     transform: scale(1.05);
 }
 
@@ -152,4 +155,56 @@ footer nav a:hover {
 
 .modal .close:hover {
     color: #f0a500;
+}
+
+article {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+article h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+article p {
+    color: #555;
+}
+
+/* Tabela w dashboard */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+/* Buttony */
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c0392b;
 }

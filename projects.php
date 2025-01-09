@@ -13,13 +13,12 @@ includeAssets();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
 </head>
 <body>
 <?php include 'includes/header.php'; ?>
 
 <main>
-    <h1>Projects</h1>
+    <h1>Projekty</h1>
     <section class="projects-list">
         <?php while ($row = $result->fetch_assoc()): ?>
             <article class="project">
@@ -28,13 +27,13 @@ includeAssets();
                 <?php if (!empty($row['image_url'])): ?>
                     <img src="<?php echo htmlspecialchars($row['image_url']); ?>" alt="Project Image" onclick="openModal(this)">
                 <?php endif; ?>
-                <p><small>Added on: <?php echo $row['created_at']; ?></small></p>
+                <p><small>dodano: <?php echo $row['created_at']; ?></small></p>
             </article>
         <?php endwhile; ?>
     </section>
 </main>
 
-<!-- Modal Structure -->
+<!-- Modal -->
 <div id="imageModal" class="modal" style="display: none;">
     <span class="close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modalImg">
